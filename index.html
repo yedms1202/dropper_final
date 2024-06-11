@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@import url('https://cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.600/neodgm/style.css');
+html{ font-family: 'NeoDunggeunmo'; }
+.fade {
+    animation: fadein 1s cubic-bezier(0.31, 0, 0.58, 1) forwards;
+    position: relative;
+    font-size: 4rem;
+    text-align: center;
+}
+
+@keyframes fadein {
+    from {left: 250px; opacity: 0}
+    to {left: 0px; opacity: 1}
+}
+
+@keyframes flash {
+    10%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0.3;
+    }
+}
+
+h1 {
+    font-family: 'NeoDunggeunmo';
+    font-size: 3rem;
+    color: white;
+    font-weight: 100;
+    line-height: 1.5;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'NeoDunggeunmo';
+    font-size: 2rem;
+    color: #0057FF;
+    font-weight: 100;
+    line-height: 1.5;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'NeoDunggeunmo';
+    font-size: 4rem;
+    color: white;
+    font-weight: 100;
+    line-height: 1.5;
+    text-align: center;
+}
+
+h4 {
+    font-family: 'NeoDunggeunmo';
+    font-size: 6rem;
+    color: #98BBFF;
+    font-weight: 100;
+    line-height: 1.2;
+    text-align: left;
+    margin-bottom: 60px;
+}
+
+h5 {
+    font-family: 'NeoDunggeunmo';
+    font-size: 3rem;
+    color: white;
+    font-weight: 100;
+    line-height: 1.3;
+    text-align: center;
+}
+
+h6 {
+    font-family: 'NeoDunggeunmo';
+    font-size: 3rem;
+    color: white;
+    font-weight: 100;
+    line-height: 1.3;
+    text-align: center;
+}
+
+h7 {
+    font-family: 'NeoDunggeunmo';
+    font-size: 3.8rem;
+    color: white;
+    font-weight: 100;
+    line-height: 1.5;
+    text-align: center;
+}
+
+h8 {
+    font-family: 'NeoDunggeunmo';
+    font-size: 3.5rem;
+    color: white;
+    font-weight: 100;
+    line-height: 1.3;
+    text-align: center;
+}
+
+h9 {font-family: 'NeoDunggeunmo'; font-weight: 600; font-size: 3rem; color: #0057FF; line-height: 1.5;}
+
+p1 {position: relative; font-family: 'Pretendard'; font-weight: 400; font-size: 1.8rem; color: ghostwhite; line-height: 1.5;}
+
+p2 {position: relative; font-family: 'Pretendard'; font-weight: 600; font-size: 2rem; color: #0057FF; line-height: 1.5;}
+
+p3 {position: relative; font-family: 'Pretendard'; font-weight: 600; font-size: 1.2rem; color: black; line-height: 1.5;}
+
+h3::before {
+    content: '';
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    height: 40px; /* 밑줄 두께 */
+    background-color: #0057FF;
+    position: absolute;
+    left: 9%;
+    z-index: -1;
+}
+
+h5::before {
+    content: '';
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: 70px; /* 밑줄 두께 */
+    background-color: #0057FF;
+    position: absolute;
+    top:5;
+    left: 2;
+    z-index: -1;
+}
+
+h6::before {
+    content: '';
+    display: flex;
+    justify-content: space-between;
+    width: 38%;
+    height: 70px; /* 밑줄 두께 */
+    background-color: #0057FF;
+    position: absolute;
+    top:5;
+    left: 2;
+    z-index: -1;
+}
+
+
+.image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 100px); /* 각 이미지의 너비 설정 */
+            gap: 10px; /* 이미지 간의 간격 설정 */
+        }
+.image-grid img {
+            width: 100%;
+            height: auto;
+        }
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0px;
+}
+
+.wrap {
+    width: 1000px;
+    margin: auto;
+    position: relative;
+}
+.wrap1 {
+    width: 1200px;
+    margin: auto;
+    position: relative;
+}
+
+.menu {
+    list-style-type: none;
+    display: flex;
+    font-family: 'NeoDunggeunmo';
+    font-size: 1.5rem;
+}
+
+.menu li {
+    padding-right: 60px;
+    padding-left: 40px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+}
+
+.menu li a:hover {
+    color: #0057FF;
+}
+
+.fixed-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    z-index: 1000;
+}
+
+.logo {
+    padding-left: 40px;
+    font-family: 'NeoDunggeunmo';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2.5rem;
+    color: #0057FF;
+}
+
+.img0 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    scale: 25%;
+}
+
+.img1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    scale: 160%;
+}
+
+.img2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scale: 60%;
+}
+
+.img3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scale: 115%;
+    margin-top: -95px;
+}
+
+.img4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scale: 145%;
+    padding-top: 25px;
+}
+
+.img5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scale: 178%;
+    padding-top: 33px;
+    animation: flash 1.4s infinite;
+}
+
+.img6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scale: 208%;
+    padding-top: 45px;
+}
+
+.img7 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    scale: 15%;
+}
+
+.img0 .overlay {
+    position: absolute;
+    top: 15;
+    left: 25;
+    scale: 500%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(30deg);
+}
+
+.responsive-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    transition: transform 1s ease-out, opacity 0.5s ease-out;
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+.scroll-animation.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.responsive-text {
+    transition: transform 1s ease-out, opacity 0.5s ease-out;
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -80px;
+}
+
+.center1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.image-container {display: flex; justify-content: center; scale: 35%; margin-left: -100px;}
+
+.container2 {display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust column count and width */
+    gap: 40px; /* Add gap between grid items */
+    justify-content: center;
+    padding: 40px;
+    padding-top: 100px;}
+
+.container2 .image-wrapper {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.container2 img {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    filter: blur(8px);
+    transition: filter 0.3s ease-in-out; 
+}
+
+.container2 .image-wrapper:hover img {
+    filter: none; /* Remove blur effect on hover */
+}
+
+.container2 .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #0057FF; 
+    font-size: 1rem;
+    font-family: 'Pretendard'; font-weight: 600; font-size: 1.5rem;
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.container2 .image-wrapper:hover .overlay {
+    opacity: 1; /* Show overlay text on hover */
+}
+
+.section-background {
+    background: linear-gradient(to top, black, #1400FF);
+    display: flex;
+    padding: 80px;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    margin-top: -180px;
+}
+
+.section-background img {
+    max-width: 60%; /* Adjust this value as needed */
+    height: auto;
+}
+.gif-size {
+    width: 700px; /* 원하는 크기로 설정 */
+    height: auto;}
+
+.gif-scale {
+    width: 650px; /* 원하는 크기로 설정 */
+    height: auto;
+    padding-left: 250px;}
+
+.gif-scale2 {
+    width: 1200px; /* 원하는 크기로 설정 */
+    height: auto;
+    padding-left: 470px;}
+
+.jpg-scale {
+    width: 1000px; /* 원하는 크기로 설정 */
+    height: auto;
+    padding-left: 120px;}
+
+.jpg-scale2 {
+    width: 800px; /* 원하는 크기로 설정 */
+    height: auto;
+    padding-left: 200px;}
+
+.text-container {
+    margin-top: -130px; 
+    margin-left: -150px;}
+.link {
+            display: block;
+            padding: 10px;
+            text-align: center;
+            background-color: navy;
+            margin: 5px 0;
+            text-decoration: none;
+            font-family: 'Pretendard'; font-weight: 600; font-size: 3rem; color: white; line-height: 1.5;
+        }
+.link:hover {
+            color: navy;
+            background-color: white;
+        }
+
+.grid-container2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.flip-container {
+    perspective: 1100px;
+}
+
+.flip-card {
+    position: relative;
+    width: 400px;
+    height: 600px;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.flip-card-front {
+    background-color: #0057FF;
+    font-color: white;
+    border: 1px solid #ccc;
+}
+
+.flip-card-back {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    transform: rotateY(180deg);
+}
+
+.flip-card:hover {
+    transform: rotateY(180deg);
+}
+
+
+</style>
+</head>
+<body style="background-color: black;">
+  <nav class="fixed-nav">
+    <div class="flex">
+      <div class="logo"> DROPPER </div>
+      <ul class="menu">
+        <li><a href="#aaa">ABOUT</a></li>
+        <li><a href="#bbb">RISK</a></li>
+        <li><a href="#ccc">PUNISHMENT</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="aaa">
+    <div class="wrap img1">
+      <img src="dropper.gif" alt="Dropper GIF">
+    </div>
+    <div class="wrap1">
+      <h1 class="center">* 던지기 수법을 통해 마약을 특정 장소에 운반하는<br>구매자에게 닿기 직전의 전달책</h1>
+      <h2 class="center1">(판매자가 아닌, 판매자와 구매자 사이를 연결하는 사람)</h2>
+    </div>
+    <div class="container" style="padding-top: 200px;">
+      <img src="tr1.png" alt="tr1" class="responsive-image scroll-animation img2">
+      <img src="tr2.png" alt="tr2" class="responsive-image scroll-animation img3">
+      <img src="tr3.png" alt="tr3" class="responsive-image scroll-animation img4">
+      <img src="tr4.png" alt="tr4" class="responsive-image scroll-animation img5">
+      <img src="tr5.png" alt="tr5" class="responsive-image scroll-animation img6">
+    </div>
+    <div class="wrap responsive-text scroll-animation" style="padding-top: 250px;">
+        <h3 class="center"> 드라퍼는 왜 등장했을까? </h3>
+    </div>
+    <div class="wrap1" style="padding-top:250px;">
+        <h4 class="responsive-text scroll-animation">온라인<br>마약 거래의<br>활성화</h4>
+        <p1>온라인 거래의 활성화로 중간 운반책이 필요해져 드라퍼가 등장했다.<br>특수한 경로로만 접근 가능한 다크웹 거래자가 특히 증가했으며,<br>중간 운반책과 가상화폐를 통해 거래가 이루어지기 때문에<br>유통자의 신상을 파악하기 어렵다.</p1>
+    </div>
+    <div class="img0" style="padding-top: 100px;">
+        <img src="person.png">
+        <div class="overlay">
+            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHB1OHNzYmcyb2l4enh3c3FtNXMyenU1YzN3b3FobnE4dmdobmFkZCZlcD12MV9pbnRlcm5naWZfYnlfaWQmY3Q9cw/dvyeWHR9qItih29laY/giphy.gif" alt="Overlay GIF">
+        </div>
+    </div>
+    <div class="wrap1">
+        <h5 class="center" style="padding-top:30px;">'마약 사범 4명 중 1명은 온라인으로 마약 거래'</h5>
+    </div>
+    <div class="wrap1" style="padding-top:250px;">
+        <h4 class="responsive-text scroll-animation">드라퍼들은<br>마약을 어디에<br>드랍할까?</h4>
+        <p1>드라퍼들은 우리의 일상 곳곳에 마약을 숨기고 있다.</p1>
+    </div>
+    <div class="container2">
+      <div class="image-wrapper">
+          <img src="pl1.png" alt="pl1">
+          <div class="overlay" style="color:#98BBFF">재활용<br>쓰레기장</div>
+      </div>
+      <div class="image-wrapper">
+          <img src="pl2.png" alt="pl2">
+          <div class="overlay" style="color:#98BBFF">놀이터</div>
+      </div>
+      <div class="image-wrapper">
+          <img src="pl3.png" alt="pl3">
+          <div class="overlay" style="color:#98BBFF">실외기</div>
+      </div>
+      <div class="image-wrapper">
+          <img src="pl4.png" alt="pl4">
+          <div class="overlay" style="color:#98BBFF">우편함</div>
+      </div>
+      <div class="image-wrapper">
+          <img src="pl5.png" alt="pl5">
+          <div class="overlay" style="color:#98BBFF">주택가 창틀</div>
+      </div>
+  </div>
+  <div class="wrap1">
+        <h6 class="center" style="padding-top:100px;">혹시 내 주변에도?</h6>
+    </div>
+</section>
+
+<section id="bbb">
+    <div class="image-grid img7">
+        <img src="drop.png" alt="Image">
+        <img src="drop.png" alt="Image">
+        <img src="drop.png" alt="Image">
+        <img src="drop.png" alt="Image">
+        <img src="drop.png" alt="Image">
+        <img src="drop.png" alt="Image">
+    </div>
+    <div class="section-background" style="padding-top: 200px;">
+        <img src="teen.gif" alt="Teen GIF" class="gif-size">
+        <div class="text-container" style="padding-right: 100px;">
+            <h4 class="responsive-text scroll-animation">유혹에<br>빠지는<br>청소년들</h4>
+            <p1>고수익에 혹하거나 호기심으로 인해 시작한다.<br>10대 청소년들은 또래 문화가 강한 탓에<br>친구의 권유를 받아 집단으로<br>마약류 범죄에 연루되는 사례가 상당하다.</p1>
+        </div>
+    </div>
+    <div class="wrap1" style="padding-top:200px;">
+        <img src="happy.gif" alt="Happy GIF" class="gif-scale">
+        <h7 class="center responsive-text scroll-animation" style="padding-top:100px;">또 다른 문제는 운반책으로 시작해<br>구매 고객으로 이어지기도 한다는 것이다.</h7>
+        <img src="deliver.jpg" alt="Deliver.JPG" style="padding-top:350px;" class="jpg-scale">
+        <img src="tri.png" alt="Tri.PNG" style="padding-top:200px;" class="jpg-scale2 responsive-text scroll-animation">
+    </div>
+<section id="ccc">
+        <h4 class="responsive-text scroll-animation" style="padding-left:680px;">처벌은?</h4>
+        <img src="judge.gif" alt="Judge.GIF" class="gif-scale2">
+        <a href="https://youtu.be/-uJWgsAx8r8?si=e2FzrJQ75XDYDISq" class="link" target="_blank" style="margin-top: -100px;">청소년 마약범죄 최대 사형 구형</a>
+    <a href="https://biz.chosun.com/topics/topics_social/2024/03/20/4HBFVNXKDJF3BFLPN4T5ABW7VQ/?utm_source=naver&utm_medium=original&utm_campaign=biz" class="link" target="_blank">등산로서 4800만원어치 마약 운반…‘드라퍼’ 구속 기소</a>
+    <a href="https://www.thefairnews.co.kr/news/articleView.html?idxno=22441" class="link" target="_blank">마약 처벌형량 초범이나 미성년자도 처벌 수위 매우 높아</a>
+    <a href="https://www.yna.co.kr/view/AKR20230912117500065" class="link" target="_blank">2억대 마약 유통한 10대들… 검찰 ‘형량 낮다’ 항소</a>
+    <h8 class="center responsive-text scroll-animation" style="padding-top: 400px;">처벌은 점점 강화되고 있으며,<br>마약 등급 별로 형량에 차이가 존재한다.</h8>
+    <div class="grid-container2" style="padding-top:150px; padding-left: 150px;">
+        <div class="flip-container">
+            <div class="flip-card">
+                <div class="flip-card-front">
+                    <h9>가목</h9>
+                </div>
+                <div class="flip-card-back">
+                    <h9>가목</h9><br>
+                    <p2>필로폰, 헤로인<br>코카인, 암페타민 등</p2><br><br>
+                    <p3>소지, 소유, 사용, 운반, 관리, 투약,<br>보관: 5년 이상의 징역</p3><br>
+                    <p3>판매, 제조, 수입: 무기 또는<br>5년 이상의 징역</p3><br>
+                    <p3>영리 목적 또는 상습범: 사형, 무기<br>또는 10년 이상의 징역</p3>
+                </div>
+            </div>
+        </div>
+        <div class="flip-container">
+            <div class="flip-card">
+                <div class="flip-card-front">
+                    <h9>나목</h9>
+                </div>
+                <div class="flip-card-back">
+                    <h9>나목</h9><br>
+                    <p2>펜타닐, 모르핀<br>메타돈 등</p2><br><br>
+                    <p3>소지, 소유, 사용, 운반, 관리, 투약,<br>보관: 3년 이상의 징역</p3><br>
+                    <p3>판매, 제조, 수입: 10년 이하의 징역</p3><br>
+                    <p3>영리 목적 또는 상습범:<br> 15년 이하의 징역</p3>
+                </div>
+            </div>
+        </div>
+        <div class="flip-container">
+            <div class="flip-card">
+                <div class="flip-card-front">
+                    <h9>다목</h9>
+                </div>
+                <div class="flip-card-back">
+                    <h9>다목</h9><br>
+                    <p2>졸피뎀, 에티졸람<br>클로나제팜 등</p2><br><br>
+                    <p3>소지, 소유, 사용, 운반, 관리, 투약<br>보관: 1년 이상의 징역</p3><br>
+                    <p3>판매, 제조, 수입: 7년 이하의 징역</p3><br>
+                    <p3>영리 목적 또는 상습범:<br> 10년 이하의 징역</p3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="wrap1" style="display: flex; justify-content: space-between; font-family: Pretendard; font-weight:600; font-size:1rem; color: white; padding-top: 300px; padding-bottom: 70px;">
+  <div class="left-spacing9">DROPPER</div>
+  <div class="center-spacing">Privacy Policy Terms of Use</div>
+  <div class="right-spacing3">&copy;2024 YeeunPark All rights reserved</div>
+  <div class="left-spacing9">SOURCES: CHANNEL A</div>
+</footer>
+</div>
+</section>
+
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const images = document.querySelectorAll('.scroll-animation');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        images.forEach(image => {
+            observer.observe(image);
+        });
+    });
+</script>
+
+</body>
+</html>
